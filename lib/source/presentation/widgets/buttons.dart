@@ -62,11 +62,15 @@ class Done {
 
   /// Redirects to the target page.
   final Widget? home;
-  const Done({
+
+  final Function() onCloseIntro;
+
+  const Done(
+      {required this.onCloseIntro,
     this.style,
     required this.child,
     this.animationDuration = const Duration(seconds: 1),
     this.curve = Curves.easeInOut,
-    required this.home,
+    this.home,
   });
 }

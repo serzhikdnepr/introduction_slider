@@ -173,35 +173,7 @@ class _IntroductionSliderState extends State<IntroductionSlider> {
                         ),
                   lastIndex
                       ? TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pushReplacement(
-                              PageRouteBuilder(
-                                transitionDuration:
-                                    widget.done.animationDuration!,
-                                transitionsBuilder: (context, animation,
-                                    secondAnimation, child) {
-                                  animation = CurvedAnimation(
-                                    parent: animation,
-                                    curve: widget.done.curve!,
-                                  );
-                                  return SlideTransition(
-                                    position: Tween<Offset>(
-                                      begin: widget.scrollDirection ==
-                                              Axis.vertical
-                                          ? const Offset(0, 1.0)
-                                          : const Offset(1.0, 0.0),
-                                      end: Offset.zero,
-                                    ).animate(animation),
-                                    child: child,
-                                  );
-                                },
-                                pageBuilder:
-                                    (context, animation, secondaryAnimation) {
-                                  return widget.done.home!;
-                                },
-                              ),
-                            );
-                          },
+                          onPressed: widget.done.onCloseIntro,
                           style: widget.done.style,
                           child: widget.done.child,
                         )
